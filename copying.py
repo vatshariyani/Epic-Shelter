@@ -45,40 +45,40 @@ while True:
     break
 
 
-#def get_details():
-while True:
-        print("\nSelect The Drive By Writing The Drive Letter")
-        selected_drive = str(input())
-        selected_drive = (selected_drive.upper()+":")
-        if selected_drive in drives:
-            print("You have selected", selected_drive, "drive")
-            print("Do you want to select or create folder?(yes/no)")
-            ans = str(input())
-            if ans.lower()=="yes" or ans.lower()=="y":
-                print("Type the path to create or select the folder(without drive)")
-                folder = str(input())
-                folder = (selected_drive+"\\"+folder)
-                print(folder)
-                if folder==os.path.exists(folder):
-                    print("yes")
-                    print("Folder " + folder + "already exists!")
+def get_details():
+    while True:
+            print("\nSelect The Drive By Writing The Drive Letter")
+            selected_drive = str(input())
+            selected_drive = (selected_drive.upper()+":")
+            if selected_drive in drives:
+                print("You have selected", selected_drive, "drive")
+                print("Do you want to select or create folder?(yes/no)")
+                ans = str(input())
+                if ans.lower()=="yes" or ans.lower()=="y":
+                    print("Type the path to create or select the folder(without drive)")
+                    folder = str(input())
+                    folder = (selected_drive+"\\"+folder)
+                    print(folder)
+                    if folder==os.path.exists(folder):
+                        print("yes")
+                        print("Folder " + folder + "already exists!")
+                    else:
+                        os.mkdir(folder)
+                        print("Folder " + folder + " created.")
                 else:
-                    os.mkdir(folder)
-                    print("Folder " + folder + " created.")
-            else:
-                print("Type in folder name to backup your data to!")
-                folder=input()
-                folder=selected_drive+"\\"+folder
+                    print("Type in folder name to backup your data to!")
+                    folder=input()
+                    folder=selected_drive+"\\"+folder
+                    break
                 break
-            break
-        else:        
-            print("You have choosen the drive that does not exists.\n"
-                  "Try again")
-            #get_details()
+            else:        
+                print("You have choosen the drive that does not exists.\n"
+                      "Try again")
+            get_details()
         
         break
     
-#get_details()
+get_details()
 
 while True:
     cans=(str(input("Do you want to copy just a file or whole folder?\n")))
