@@ -57,10 +57,10 @@ while True:
                 print(folder)
                 if folder==os.path.exists(folder):
                     print("yes")
-                    print("Folder", folder, "already exists!")
+                    print("Folder " + folder + "already exists!")
                 else:
                     os.mkdir(folder)
-                    print("Folder", folder, "created.")
+                    print("Folder " + folder + " created.")
             else:
                 print("Type in folder name to backup your data to!")
                 folder=input()
@@ -79,10 +79,10 @@ while True:
 while True:
     cans=(str(input("Do you want to copy just a file or whole folder?\n")))
     if cans.lower()=="file":
-        print("Put The Path of what you wanna backup")
+        print("Put The Path of what you wanna backup: ")
         location=str(input())
         if location and os.path.exists(location):
-            print("Backing up from", location, "to", folder)
+            print("Backing up from ", location, " to ", folder)
             print("Backing up file...")
             shutil.copy(location, folder)
             break
@@ -90,10 +90,10 @@ while True:
             print("Please put the correct path")
             
     elif cans.lower()=="folder":
-        print("Put The Path of what you wanna backup")
+        print("Put The Path of what you wanna backup: ")
         location=str(input())
         if location and os.path.exists(location):
-            print("Backing up from", location, "to", folder)
+            print("Backing up from ", location, " to ", folder)
             print("Backing up folder...")
             shutil.copytree(location, folder)           
             break

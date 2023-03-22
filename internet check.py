@@ -12,7 +12,7 @@ while True:
             print("You are connected to internet!!")
         except requests.ConnectionError:
             # Do something
-            print("The internet connection is down :(")
+            print("You are not connected to the internet.")
     else:
         pass    
 
